@@ -1,0 +1,9 @@
+site_name: Dokumentasi Praktikum KI
+nav: 
+  - Intro: index.md
+  - 'Bab 1: Cryptography':
+    - 'Cara Install Python': bab-1/01-install-py.md
+  - 'Bab 3: Memory Corruption':
+    - 'gcc fatal error': bab-3/01-gcc-error.md
+    - 'python payload error': bab-3/02-python-payload-error.md
+theme: readthedocs
