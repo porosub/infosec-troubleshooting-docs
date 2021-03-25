@@ -12,6 +12,6 @@ Penyebab umum,
 
 Penyelesaian untuk penyebab pertama,<br>
 Install gcc multilib menggunakan perintah sbb.
-```bash
+``` bash
 sudo apt update && sudo apt install gcc-multilib
 ```
