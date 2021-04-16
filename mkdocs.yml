@@ -6,6 +6,8 @@ nav:
   - 'Bab 3: Memory Corruption':
     - 'gcc fatal error': bab-3/01-gcc-error.md
     - 'python payload error': bab-3/02-python-payload-error.md
+  - 'Bab 6: File Upload':
+    - 'Install Apache2 dan PHP': bab-6/01-apache-php-installation.md
 theme: material
 markdown_extensions:
   - pymdownx.snippets
