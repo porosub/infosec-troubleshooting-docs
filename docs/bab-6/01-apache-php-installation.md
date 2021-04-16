@@ -5,7 +5,7 @@
 Instalasi apache2 dan php dapat dilakukan dengan perintah berikut,
 
 ```bash
-sudo bash -c "apt update && apt install apache2 php libapache2-mod-php"
+sudo bash -c "apt update && apt install apache2 php libapache2-mod-php -y"
 ```
 
 ![install php apache](images/01_001.png)
@@ -22,6 +22,12 @@ Jika belum memiliki status *running*, jalankan dengan perintah berikut,
 
 ```bash
 sudo systemctl start apache2
+```
+
+Pastikan modul apache untuk php sudah di-enable,
+
+```bash
+sudo a2enmod php7.2 # sesuaikan versi php-nya
 ```
 
 Untuk membuat apache selalu berjalan ketika komputer pertama kali dinyalakan, jalankan perintah berikut.
