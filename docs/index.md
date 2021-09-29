@@ -1,17 +1,13 @@
-# Welcome to MkDocs
+# Welcome to Infosec Module Docs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Laman ini dibuat untuk membantu praktikan melakukan troubleshoot masalah yang sering ditemukan di modul FILKOM UB.
 
-## Commands
+## Navigasi
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Navigasi situs dapat dilakukan dengan memilih bab dan problem yang sesuai dari menu sebelah kiri, atau mencarinya menggunakan search bar.
 
-## Project layout
+![navigasi](images/intro.png)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Kontribusi
+
+Untuk asisten yang ingin melakukan kontribusi bisa melalui github dengan melakukan PR langsung di [repository](https://github.com/porosub/infosec-troubleshooting-docs) laman ini. 
