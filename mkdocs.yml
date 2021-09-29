@@ -3,9 +3,12 @@ nav:
   - Intro: index.md
   - 'Bab 1: Cryptography':
     - 'Cara Install Python': bab-1/01-install-py.md
+  - 'Bab 2: Reverse Engineering':
+    - 'Binary uncompyle6 not found': bab-2/01-uncompyle6-not-found.md'
+    - 'Instalasi dex2jar': bab-2/02-dex2jar-installation.md'
   - 'Bab 3: Memory Corruption':
-    - 'gcc fatal error': bab-3/01-gcc-error.md
-    - 'python payload error': bab-3/02-python-payload-error.md
+    - 'GCC fatal error': bab-3/01-gcc-error.md
+    - 'Python payload error': bab-3/02-python-payload-error.md
   - 'Bab 6: File Upload':
     - 'Install Apache2 dan PHP': bab-6/01-apache-php-installation.md
 theme: material
