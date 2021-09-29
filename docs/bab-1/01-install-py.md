@@ -6,7 +6,7 @@ Untuk modul KI ini, sebaiknya menggunakan versi python 3.7 dan python 2.7.9 (ops
 
 Kunjungi [tautan berikut](https://www.python.org/downloads/), pilih versi yang sesuai dan klik download.
 
-![](images/01_001.png)
+![win-install](images/01_001.png)
 
 ## MacOS
 
