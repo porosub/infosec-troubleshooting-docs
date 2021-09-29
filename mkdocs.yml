@@ -6,6 +6,7 @@ nav:
   - 'Bab 2: Reverse Engineering':
     - 'Binary uncompyle6 not found': bab-2/01-uncompyle6-not-found.md
     - 'Instalasi dex2jar': bab-2/02-dex2jar-installation.md
+    - 'Error apktool java no version information' : bab-2/03-apktool-error.md
   - 'Bab 3: Memory Corruption':
     - 'GCC fatal error': bab-3/01-gcc-error.md
     - 'Python payload error': bab-3/02-python-payload-error.md

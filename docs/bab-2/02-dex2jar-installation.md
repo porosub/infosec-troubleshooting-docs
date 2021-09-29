@@ -30,7 +30,7 @@ Pertama, download rilis dex-tools di github atau bisa menggunakan perintah `wget
 wget https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip
 ```
 
-![downloaded-dex-tools](images/02_003.jpg)
+![downloaded-dex-tools](images/02_003.png)
 
 Extract file dex-tools-2.0.zip menggunakan `unzip`
 
@@ -38,7 +38,7 @@ Extract file dex-tools-2.0.zip menggunakan `unzip`
 unzip dex-tools-2.0.zip
 ```
 
-![unzipped-dex-tools](images/02_004.jpg)
+![unzipped-dex-tools](images/02_004.png)
 
 Tambahkan permission eksekusi untuk semua file yang ada di direktori `dex2jar-2.0`.
 
@@ -52,4 +52,4 @@ Jalankan d2j-dex2jar.sh pada direktori dex2jar-2.0 dan tambah argumen path ke fi
 ./dex2jar-2.0/d2j-dex2jar.sh ./android_app/classes2.dex
 ```
 
-![success-dex2jar](images/02_005.jpg)
+![success-dex2jar](images/02_005.png)
