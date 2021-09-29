@@ -4,8 +4,8 @@ nav:
   - 'Bab 1: Cryptography':
     - 'Cara Install Python': bab-1/01-install-py.md
   - 'Bab 2: Reverse Engineering':
-    - 'Binary uncompyle6 not found': bab-2/01-uncompyle6-not-found.md'
-    - 'Instalasi dex2jar': bab-2/02-dex2jar-installation.md'
+    - 'Binary uncompyle6 not found': bab-2/01-uncompyle6-not-found.md
+    - 'Instalasi dex2jar': bab-2/02-dex2jar-installation.md
   - 'Bab 3: Memory Corruption':
     - 'GCC fatal error': bab-3/01-gcc-error.md
     - 'Python payload error': bab-3/02-python-payload-error.md
