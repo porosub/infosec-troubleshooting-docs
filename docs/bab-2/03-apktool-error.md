@@ -29,7 +29,7 @@ Pertama, download rilis apktool di github atau bisa menggunakan perintah `wget`,
 wget -O apktool https://github.com/iBotPeaches/Apktool/releases/download/v2.6.0/apktool_2.6.0.jar
 ```
 
-Jalankan apktool menambahkan perintah `java -jar` sebelum p
+Jalankan apktool menambahkan perintah `java -jar` sebelum `apktool d ...` seperti berikut,
 
 ```bash
 java -jar apktool d android_app.apk
