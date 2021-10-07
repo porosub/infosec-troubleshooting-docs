@@ -58,6 +58,8 @@ Login menggunakan password default osboxes, yaitu `osboxes.org` dan Mesin Virtua
 
 ![login-user-osboxes](images/000_11.png)
 
+> A little tip, ukuran resolusi default vm pada virtualbox adalah 4:3. Untuk mengganti resolusi bisa menuju ke pengaturan display pada **mesin virtual**nya, set ke resolusi atau ukuran yang diinginkan seperti 1280x720 atau 1600x900 dst.
+
 ## [Optional] Setup User Baru dan Ubah hostname
 
 Tambahkan user baru dengan username bebas dan password yang aman.
