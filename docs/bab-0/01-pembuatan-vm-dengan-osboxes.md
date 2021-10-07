@@ -71,7 +71,7 @@ sudo adduser username
 Tambahkan ke grup sudo agar bisa menjalankan command sudo
 
 ```bash
-sudo usermod -aG sudo bob
+sudo usermod -aG sudo username
 ```
 
 Lalu, jalankan command berikut untuk membuat user baru tidak perlu memasukkan password setiap kali ingin menjalankan sudo.
