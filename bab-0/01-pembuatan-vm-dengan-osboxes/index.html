@@ -1,0 +1,771 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>Pembuatan VM dengan osboxes - Dokumentasi Praktikum KI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#persiapan-lingkungan-praktikum" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Dokumentasi Praktikum KI" class="md-header__button md-logo" aria-label="Dokumentasi Praktikum KI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dokumentasi Praktikum KI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pembuatan VM dengan osboxes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Dokumentasi Praktikum KI" class="md-nav__button md-logo" aria-label="Dokumentasi Praktikum KI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Dokumentasi Praktikum KI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Bab 0: Persiapan Lingkungan Praktikum
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bab 0: Persiapan Lingkungan Praktikum" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bab 0: Persiapan Lingkungan Praktikum
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Pembuatan VM dengan osboxes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Pembuatan VM dengan osboxes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    Prasyarat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unduh-linux-box-dari-osboxes" class="md-nav__link">
+    Unduh Linux Box dari Osboxes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pembuatan-mesin-virtual-baru" class="md-nav__link">
+    Pembuatan Mesin Virtual Baru
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-setup-user-baru-dan-ubah-hostname" class="md-nav__link">
+    [Optional] Setup User Baru dan Ubah hostname
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Bab 1: Cryptography
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bab 1: Cryptography" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bab 1: Cryptography
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-1/01-install-py/" class="md-nav__link">
+        Cara Install Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Bab 2: Reverse Engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bab 2: Reverse Engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Bab 2: Reverse Engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-2/01-uncompyle6-not-found/" class="md-nav__link">
+        Binary uncompyle6 not found
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-2/02-dex2jar-installation/" class="md-nav__link">
+        Instalasi dex2jar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-2/03-apktool-error/" class="md-nav__link">
+        Error apktool java no version information
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Bab 3: Memory Corruption
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bab 3: Memory Corruption" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bab 3: Memory Corruption
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-3/01-gcc-error/" class="md-nav__link">
+        GCC fatal error
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-3/02-python-payload-error/" class="md-nav__link">
+        Python payload error
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-3/03-checksec-unable-to-locate/" class="md-nav__link">
+        Checksec unable to locate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Bab 6: File Upload
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bab 6: File Upload" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Bab 6: File Upload
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bab-6/01-apache-php-installation/" class="md-nav__link">
+        Install Apache2 dan PHP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    Prasyarat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unduh-linux-box-dari-osboxes" class="md-nav__link">
+    Unduh Linux Box dari Osboxes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pembuatan-mesin-virtual-baru" class="md-nav__link">
+    Pembuatan Mesin Virtual Baru
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-setup-user-baru-dan-ubah-hostname" class="md-nav__link">
+    [Optional] Setup User Baru dan Ubah hostname
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="persiapan-lingkungan-praktikum">Persiapan Lingkungan Praktikum</h1>
+<h2 id="prasyarat">Prasyarat</h2>
+<p>Pastikan kalian sudah memasang virtualbox atau vmware atau vm manager lain pada sistem operasi kalian.</p>
+<h2 id="unduh-linux-box-dari-osboxes">Unduh Linux Box dari Osboxes</h2>
+<p>Download image ubuntu dengan DE yang sesuai dengan kemampuan laptop.</p>
+<p>Jika RAM kurang dari 8 GB, bisa mencoba menggunakan <a href="https://www.osboxes.org/xubuntu/">Xubuntu</a> atau <a href="https://www.osboxes.org/lubuntu/">Lubuntu</a>. Jika RAM diatas 8 GB, bisa menggunakan <a href="https://www.osboxes.org/ubuntu/">Ubuntu</a> GNOME Biasa. Unduh flavor ubuntu yang sesuai di versi 20.04. Box lainnya bisa dilihat di laman resmi <a href="https://www.osboxes.org/virtualbox-images/">osboxes</a>, untuk praktikum KI disarankan memakai Ubuntu GNOME atau Xubuntu. Untuk yang menggunakan vm manager lain bisa menyesuaikan.</p>
+<p><img alt="osboxes-web" src="../images/000_01.png" /></p>
+<h2 id="pembuatan-mesin-virtual-baru">Pembuatan Mesin Virtual Baru</h2>
+<p>Klik ikon New,</p>
+<p><img alt="klik-new" src="../images/000_02.png" /></p>
+<p>Sesuaikan nama dan folder tempat penyimpanan data mesin virtual dan tipe serta jenisnya.</p>
+<p><img alt="deskripsi-vm" src="../images/000_03.png" /></p>
+<p>Alokasikan memori RAM untuk mesin virtual. Untuk Xubuntu, minimal alokasi memori RAM adalah 512 MB namun, disarankan untuk melebihinya seperti di 1024 MB atau 1536 MB. Untuk Ubuntu GNOME, disarankan untuk mengalokasikan memori minimal 4096 MB.</p>
+<p><img alt="alokasi-memori" src="../images/000_04.png" /></p>
+<blockquote>
+<p>Jika menggunakan xubuntu, untuk beberapa praktikum yang menggunakan aplikasi berbasis java (ghidra) mungkin tidak bisa dijalankan. Solusinya adalah menjalankan ghidra di OS Host secara langsung.</p>
+</blockquote>
+<p>Klik ikon folder untuk membuka file yang telah didownload tadi.</p>
+<p><img alt="open-osboxes" src="../images/000_05.png" /></p>
+<p>Klik Add,</p>
+<p><img alt="klik-add-box" src="../images/000_06.png" /></p>
+<p>Arahkan ke tempat di mana kalian mengekstrak file vdi dari box yang kalian download pada osboxes. Klik open.</p>
+<p><img alt="choose-box" src="../images/000_07.png" /></p>
+<p>Klik <em>Choose</em> untuk memilih file yang kita tambahkan tadi.</p>
+<blockquote>
+<p>Jangan khawatir dengan virtual size yang sangat besar. Ukuran tersebut tidak akan dialokasikan langsung ke penyimpanan, namun dialokasikan secara dinamis sesuai dengan total ukuran file-file yang ada di mesin virtual.</p>
+</blockquote>
+<p><img alt="choose" src="../images/000_08.png" /></p>
+<p>Klik create untuk membuat mesin virtual.</p>
+<p><img alt="create-vm" src="../images/000_09.png" /></p>
+<p>Klik start untuk memulai Mesin virtual</p>
+<p><img alt="start-vm" src="../images/000_10.png" /></p>
+<p>Login menggunakan password default osboxes, yaitu <code>osboxes.org</code> dan Mesin Virtual sudah jadi.</p>
+<p><img alt="login-user-osboxes" src="../images/000_11.png" /></p>
+<blockquote>
+<p>A little tip, ukuran resolusi default vm pada virtualbox adalah 4:3. Untuk mengganti resolusi bisa menuju ke pengaturan display pada <strong>mesin virtual</strong>nya, set ke resolusi atau ukuran yang diinginkan seperti 1280x720 atau 1600x900 dst.</p>
+</blockquote>
+<h2 id="optional-setup-user-baru-dan-ubah-hostname">[Optional] Setup User Baru dan Ubah hostname</h2>
+<p>Tambahkan user baru dengan username bebas dan password yang aman.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo adduser username
+</code></pre></div>
+</td></tr></table>
+<p><img alt="add-user" src="../images/000_18.png" /></p>
+<p>Tambahkan ke grup sudo agar bisa menjalankan command sudo</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo usermod -aG sudo username
+</code></pre></div>
+</td></tr></table>
+<p>Lalu, jalankan command berikut untuk membuat user baru tidak perlu memasukkan password setiap kali ingin menjalankan sudo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo bash -c <span class="s1">&#39;echo &quot;username ALL=(ALL) NOPASSWD:ALL&quot; | tee /etc/sudoers.d/username&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="add-to-sudoers" src="../images/000_19.png" /></p>
+<p>Ganti menjadi user baru,</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>su - bob
+</code></pre></div>
+</td></tr></table>
+<p>Ganti lagi menjadi user <code>root</code> melalui user baru yang dibuat tadi,</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo -i
+</code></pre></div>
+</td></tr></table>
+<p><img alt="add-sudo-without-pass" src="../images/000_20.png" /></p>
+<p>Ganti hostname dengan menjalankan 2 perintah berikut dengan user <code>root</code>,</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hostname username-praktikum-ki
+<span class="nb">echo</span> <span class="s1">&#39;username-praktikum-ki&#39;</span> &gt; /etc/hostname
+</code></pre></div>
+</td></tr></table>
+<p><img alt="hostname-change" src="../images/000_21.png" /></p>
+<p>Exit dari <code>root</code> dan login menjadi <code>root</code> lagi dengan perintah <code>sudo -i</code>.</p>
+<p><img alt="test-hostname" src="../images/000_22.png" /></p>
+<p>Reboot mesin virtual,</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo shutdown -r now
+</code></pre></div>
+</td></tr></table>
+<p><img alt="reboot-vm" src="../images/000_23.png" /></p>
+<p>Login dengan user baru.</p>
+<p><img alt="osboxes-web" src="../images/000_24.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Intro" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Intro
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../bab-1/01-install-py/" class="md-footer__link md-footer__link--next" aria-label="Next: Cara Install Python" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Cara Install Python
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+    
+  </body>
+</html>
