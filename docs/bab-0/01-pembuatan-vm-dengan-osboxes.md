@@ -77,7 +77,7 @@ sudo usermod -aG sudo bob
 Lalu, jalankan command berikut untuk membuat user baru tidak perlu memasukkan password setiap kali ingin menjalankan sudo.
 
 ```bash
-sudo bash -c 'echo "username ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/bob'
+sudo bash -c 'echo "username ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/username'
 ```
 
 ![add-to-sudoers](images/000_19.png)
