@@ -3,7 +3,7 @@
 ## Python error payload tidak sesuai ekspektasi
 
 Contoh error,
-![](images/02_001.png)
+![error](images/02_001.png)
 
 Penyebab umum,
 
