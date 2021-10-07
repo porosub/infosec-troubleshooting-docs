@@ -1,6 +1,8 @@
 site_name: Dokumentasi Praktikum KI
 nav: 
   - Intro: index.md
+  - 'Bab 0: Persiapan Lingkungan Praktikum'
+    - 'Pembuatan VM dengan osboxes': bab-0/01-pembuatan-vm-dengan-osboxes.md
   - 'Bab 1: Cryptography':
     - 'Cara Install Python': bab-1/01-install-py.md
   - 'Bab 2: Reverse Engineering':
