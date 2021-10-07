@@ -60,7 +60,7 @@ Login menggunakan password default osboxes, yaitu `osboxes.org` dan Mesin Virtua
 
 ## [Optional] Setup User Baru dan Ubah hostname
 
-Tambahkan user baru dengan username bebas
+Tambahkan user baru dengan username bebas dan password yang aman.
 
 ```bash
 sudo adduser username
@@ -74,25 +74,49 @@ Tambahkan ke grup sudo agar bisa menjalankan command sudo
 sudo usermod -aG sudo bob
 ```
 
-![add-to-sudoers](images/000_19.png)
-
-Jalankan command berikut untuk membuat user baru tidak perlu memasukkan password setiap kali ingin menjalankan sudo.
+Lalu, jalankan command berikut untuk membuat user baru tidak perlu memasukkan password setiap kali ingin menjalankan sudo.
 
 ```bash
-sudo bash -c 'echo "username ALL=(ALL)" '
+sudo bash -c 'echo "username ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/bob'
 ```
 
-![osboxes-web](images/000_20.png)
+![add-to-sudoers](images/000_19.png)
 
-![osboxes-web](images/000_21.png)
+Ganti menjadi user baru,
 
-![osboxes-web](images/000_22.png)
+```bash
+su - bob
+```
 
-![osboxes-web](images/000_23.png)
+Ganti lagi menjadi user `root` melalui user baru yang dibuat tadi,
+
+```bash
+sudo -i
+```
+
+![add-sudo-without-pass](images/000_20.png)
+
+Ganti hostname dengan menjalankan 2 perintah berikut dengan user `root`,
+
+```bash
+hostname username-praktikum-ki
+echo 'username-praktikum-ki' > /etc/hostname
+```
+
+![hostname-change](images/000_21.png)
+
+Exit dari `root` dan login menjadi `root` lagi dengan perintah `sudo -i`.
+
+![test-hostname](images/000_22.png)
+
+Reboot mesin virtual,
+
+```bash
+sudo shutdown -r now
+```
+
+![reboot-vm](images/000_23.png)
+
+Login dengan user baru.
 
 ![osboxes-web](images/000_24.png)
-
-![osboxes-web](images/000_25.png)
-
-![osboxes-web](images/000_26.png)
-
