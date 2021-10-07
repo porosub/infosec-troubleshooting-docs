@@ -10,6 +10,7 @@ nav:
   - 'Bab 3: Memory Corruption':
     - 'GCC fatal error': bab-3/01-gcc-error.md
     - 'Python payload error': bab-3/02-python-payload-error.md
+    - 'Checksec unable to locate': bab-3/03-checksec-unable-to-locate.md
   - 'Bab 6: File Upload':
     - 'Install Apache2 dan PHP': bab-6/01-apache-php-installation.md
 theme: material
